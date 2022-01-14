@@ -9,7 +9,7 @@ from os import path
 from asyncio.queues import QueueEmpty
 from typing import Callable
 from pyrogram import Client, filters
-from pyrogram.types import Message, Voice, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, Message, Voice, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserAlreadyParticipant
 from modules.cache.admins import set
 from modules.clientbot import clientbot, queues
@@ -34,6 +34,23 @@ from pytgcalls.types.input_stream import InputAudioStream
 chat_id = None
 useer = "NaN"
 
+def cb_admin_check(func: Callable) -> Callable:
+    async def decorator(client, cb):
+        admemes = a.get(cb.message.chat.id)
+        if cb.from_user.id in admemes:
+            return await func(client, cb)
+        else:
+            await cb.answer("💡 only admin can tap this button !", show_alert=True)
+            return
+
+    return decorator
+
+@Client.on_callback_query(filters.regex("cls"))
+async def close(_, query: CallbackQuery):
+    a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
+    if not a.can_manage_voice_chats:
+        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
+    await query.message.delete()
 
 def transcode(filename):
     ffmpeg.input(filename).output(
@@ -172,11 +189,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(
-                            text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞",
-                            url=f"https://t.me/adityadiscus")
-
-                ]
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
+                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                ],
+                [
+                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                ],
             ]
         )
 
@@ -211,11 +229,12 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(
-                            text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞",
-                            url=f"https://t.me/adityadiscus")
-
-                ]
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
+                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                ],
+                [
+                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                ],
             ]
         )
 
@@ -227,11 +246,12 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(
-                            text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞",
-                            url=f"https://t.me/adityadiscus")
-
-                ]
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
+                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                ],
+                [
+                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                ],
             ]
         )
 
@@ -281,11 +301,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(
-                            text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞",
-                            url=f"https://t.me/adityadiscus")
-
-                ]
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
+                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                ],
+                [
+                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                ],
             ]
         )
 
@@ -334,9 +355,7 @@ async def play(_, message: Message):
 @authorized_users_only
 async def pause(_, message: Message):
     await clientbot.pytgcalls.pause_stream(message.chat.id)
-    await message.reply_photo(
-                             photo="https://te.legra.ph/file/f2b5739b266e05c9a2909.png", 
-                             caption="**💥 Ʌɗɩtyɑ 🔈 Mʋsɩƈ🤞Nøω 🥀\n▶️ Ƥɑʋsɘɗ 🌷 ...**"
+    await message.reply_text("**▶️ Ƥɑʋsɘɗ 🌷 ...**"
     )
 
 
@@ -345,9 +364,7 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     await clientbot.pytgcalls.resume_stream(message.chat.id)
-    await message.reply_photo(
-                             photo="https://te.legra.ph/file/391e636040ae189c23cdb.png", 
-                             caption="**💥 Ʌɗɩtyɑ 🔈 Mʋsɩƈ🤞Nøω 🥀\n⏸ Ƥɭɑyɩɳʛ 🌷 ...**"
+    await message.reply_text("**⏸ Ƥɭɑyɩɳʛ 🌷 ...**"
     )
 
 
@@ -379,9 +396,7 @@ async def skip(_, message: Message):
             )
 
 
-    await message.reply_photo(
-                             photo="https://te.legra.ph/file/4e92cde4f29dbecffb7a7.png", 
-                             caption=f'**💥 Ʌɗɩtyɑ 🔈 Mʋsɩƈ🤞Nøω 🥀\n⏩ Sƙɩƥƥɘɗ 🌷 ...**'
+    await message.reply_text("**⏩ Sƙɩƥƥɘɗ 🌷 ...**"
    ) 
 
 
@@ -395,9 +410,7 @@ async def stop(_, message: Message):
         pass
 
     await clientbot.pytgcalls.leave_group_call(message.chat.id)
-    await message.reply_photo(
-                             photo="https://te.legra.ph/file/836a1883cf1dd024f1b7e.png", 
-                             caption="**💥 Ʌɗɩtyɑ 🔈 Mʋsɩƈ🤞Nøω 🥀\n❌ Sʈøƥƥɘɗ 🌷 ...**"
+    await message.reply_text("**❌ Sʈøƥƥɘɗ 🌷 ...**"
     )
 
 
@@ -413,7 +426,5 @@ async def admincache(client, message: Message):
         ),
     )
 
-    await message.reply_photo(
-                              photo="https://te.legra.ph/file/02306701e296bcf8634fa.png",
-                              caption="**💥 Ʌɗɩtyɑ 🔈 Mʋsɩƈ🤞Nøω 🥀\n🔥 Ʀɘɭøɑɗɘɗ 🌷 ...**"
+    await message.reply_text("**🔥 Ʀɘɭøɑɗɘɗ 🌷 ...**"
     )
