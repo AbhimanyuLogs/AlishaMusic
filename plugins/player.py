@@ -152,7 +152,7 @@ async def play(_, message: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "** 😎 I🤞ʌɱ 🥀 Ʀɘɑɗy ♥️ Ƭø ⭐ Ƥɭɑy 😎 ...**")
+                        message.chat.id, "** 😎 I🤞ƛɱ 🥀 Ʀɘɑɗy ♥️ Ƭø ⭐ Ƥɭɑy 😎 ...**")
 
                 except UserAlreadyParticipant:
                     pass
