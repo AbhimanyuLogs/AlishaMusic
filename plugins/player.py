@@ -106,7 +106,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     draw.text((190, 630), f"Views: {views}", (255, 255, 255), font=font)
     draw.text(
         (190, 670),
-        f"Powered By: Aditya Halder (@AdityaHalder)",
+        f"Powered By: Abhi💕Candy(@Itz_VeNom_xD @candy_626)",
         (255, 255, 255),
         font=font,
     )
@@ -134,7 +134,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "Aditya_Player"
+        user.first_name = "QueenAlishaRobot"
     usar = user
     wew = usar.id
     try:
@@ -181,7 +181,7 @@ async def play(_, message: Message):
 
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://te.legra.ph/file/ed6920a2f0ab5af3fd55d.png"
+        thumb_name = "https://telegra.ph/file/7daf0a577d16c650193a1.png"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -189,11 +189,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
-                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url=f"https://t.me/Shayri_Music_Lovers"),
+                        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/AlishaSupport")
                 ],
                 [
-                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                        InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data="cls")
                 ],
             ]
         )
@@ -229,28 +229,28 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
-                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url=f"https://t.me/Shayri_Music_Lovers"),
+                        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/AlishaSupport")
                 ],
                 [
-                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                        InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data="cls")
                 ],
             ]
         )
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/ed6920a2f0ab5af3fd55d.png"
+            thumb_name = "https://telegra.ph/file/7daf0a577d16c650193a1.png"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
-                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url=f"https://t.me/Shayri_Music_Lovers"),
+                        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/AlishaSupport")
                 ],
                 [
-                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                        InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data="cls")
                 ],
             ]
         )
@@ -301,11 +301,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/adityaserver"),
-                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/adityadiscus")
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url=f"https://t.me/Shayri_Music_Lovers"),
+                        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/AlishaSupport")
                 ],
                 [
-                        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                        InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data="cls")
                 ],
             ]
         )
