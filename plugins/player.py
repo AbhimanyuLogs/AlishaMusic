@@ -126,7 +126,7 @@ async def play(_, message: Message):
     global que
     global useer
     
-    lel = await message.reply("**🔎 Sɘɑɤƈɦɩɳʛ ...**")
+    lel = await message.reply("**🔎 ꜱᴇᴀʀᴄʜɪɴɢ ...**")
 
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -146,24 +146,24 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "**💥 Ʌʈ🤞Fɩrsʈ 🥀 Ɱɑƙɘ ♥️ Ɱɘ ⭐ Ʌɗɱɩŋ 😎 ...**")
+                        "**💥 ᴀᴛ 🤞 ғɪʀsᴛ 🥀 ᴍᴀᴋᴇ ♥️ ᴍᴇ ⭐ ᴀᴅᴍɪɴ 😎 ...**")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "** 😎 I🤞ƛɱ 🥀 Ʀɘɑɗy ♥️ Ƭø ⭐ Ƥɭɑy 😎 ...**")
+                        message.chat.id, "** 😎 ɪ 🤞 ᴊᴏɪɴᴅ 🥀 ʜᴇʀᴇ ♥️ ᴛᴏ ⭐ ᴘʟᴀʏ ᴍᴜsɪᴄ 😎 ...**")
 
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     await lel.edit(
-                        f"**🎸 Ƥɭɘɑsɘ ❤️ Ɱɑŋʋɑɭɭy 🥀 Ʌɗɗ 💫 Ʌssɩsʈɑŋʈ 😔 Øɤ 🎸 Ƈøŋʈɑƈʈ ❤️ ʈø : @AdityaHalder 🥀** ")
+                        f"**🎸 ᴘʟᴇᴀsᴇ ❤️ ᴍᴀɴᴜᴀʟʟʏ 🥀 ᴀᴅᴅ 💫 ᴀssɪsᴛᴀɴᴛ 😔 ᴏʀ 🎸 ᴄᴏɴᴛᴀᴄᴛ ❤️ ᴛᴏ : @AdityaHalder 🥀** ")
     try:
         await USER.get_chat(chid)
     except:
         await lel.edit(
-            f"**🎸 Ƥɭɘɑsɘ ❤️ Ɱɑŋʋɑɭɭy 🥀 Ʌɗɗ 💫 Ʌssɩsʈɑŋʈ 😔 Øɤ 🎸 Ƈøŋʈɑƈʈ ❤️ ʈø : @AdityaHalder 🥀 ...*")
+            f"**🎸 Ƥɭɘɑsɘ ❤️ ᴘʟᴇᴀsᴇ ❤️ ᴍᴀɴᴜᴀʟʟʏ 🥀 ᴀᴅᴅ 💫 ᴀssɪsᴛᴀɴᴛ 😔 ᴏʀ 🎸 ᴄᴏɴᴛᴀᴄᴛ ❤️ ᴛᴏ : @AdityaHalder 🥀 ...*")
         return
     
     audio = (
@@ -176,7 +176,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"**💥 Ƥɭɑy 🔊 Ɱʋsɩƈ 💿 Lɘss ⚡️\n🤟 Ƭɦɑɳ⚡️ {DURATION_LIMIT} 💞 Ɱɩɳʋʈɘ ...**"
+                f"**💥 ᴘʟᴀʏ 🔊 ᴍᴜsɪᴄ 💿 ʟᴇss ⚡️\n🤟 ᴛʜᴀɴ ⚡️ {DURATION_LIMIT} 💞 ᴍɪɴᴜᴛᴇs ...**"
             )
 
         file_name = get_file_name(audio)
@@ -257,7 +257,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"**💥 Ƥɭɑy 🔊 Ɱʋsɩƈ 💿 Lɘss ⚡️\n🤟 Ƭɦɑɳ⚡️ {DURATION_LIMIT} 💞 Ɱɩɳʋʈɘ ...**"
+                f"**💥 ᴘʟᴀʏ 🔊 ᴍᴜsɪᴄ 💿 ʟᴇss ⚡️\n🤟 ᴛʜᴀɴ 💫 {DURATION_LIMIT} 💞 ᴍɪɴᴜᴛᴇs ...**"
             )
             return
         requested_by = message.from_user.first_name
@@ -266,7 +266,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "**🤖 Ɠɩⱱɘ 🙃 Ɱʋsɩƈ 💿 Ɲɑɱɘ 😍\n💞 Ƭø 🔊 Ƥɭɑy 🌷...**"
+                "**🤖 Gɪᴠᴇ 🙃 ᴍᴇ 💿 sᴏᴍᴇᴛʜɪɴɢ 😍\n💞 ᴛᴏ 🔊 ᴘʟᴀʏ 🌷...**"
             )
         await lel.edit("**🔄 Ƥɤøƈɘssɩɳʛ ...**")
         query = message.text.split(None, 1)[1]
@@ -293,7 +293,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "**🔊 Ɱʋsɩƈ 😕 Ɲøʈ 📵 Føʋɳɗ❗️\n💞 Ƭɤy ♨️ Ʌɳøʈɦɘɤ 🌷...**"
+                "**🔊 Mᴜsɪᴄ 😕 ɴᴏᴛ 📵 ғᴏᴜɴᴅ❗️\n💞 ᴛʀʏ ♨️ ᴀɴᴏᴛʜᴇʀ sᴏɴɢ 🌷...**"
             )
             print(str(e))
             return
@@ -312,7 +312,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"**💥 Ƥɭɑy 🔊 Ɱʋsɩƈ 💿 Lɘss ⚡️\n🤟 Ƭɦɑɳ⚡️ {DURATION_LIMIT} 💞 Ɱɩɳʋʈɘ ...**"
+                f"**💥 ᴘʟᴀʏ 🔊 ᴍᴜsɪᴄ 💿 ʟᴇss ⚡️\n🤟 ᴛʜᴀɴ ⚡️\n🤟 {DURATION_LIMIT} 💞 ᴍɪɴᴜᴛᴇs ...**"
             )
             return
         requested_by = message.from_user.first_name
@@ -326,7 +326,7 @@ async def play(_, message: Message):
         position = await queues.put(chat_id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**💥 Ʌɗɩtyɑ🤞Ʌɗɗɘɗ 💿 Søɳʛ❗️\n🔊 Ʌʈ 💞 Ƥøsɩʈɩøɳ » `{}` 🌷 ...**".format(position),
+            caption="**💥 ᴀʟɪꜱʜᴀ🤞ᴀᴅᴅᴇᴅ 💿 sᴏɴɢ❗️\n🔊 ᴀᴛ ᴡᴀɪᴛɪɴɢ 💞 ᴘᴏsɪᴛɪᴏɴ » `{}` 🌷 ...**".format(position),
             reply_markup=keyboard,
         )
     else:
@@ -343,7 +343,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**💥 Ʌɗɩtyɑ🤞Mʋsɩƈ 🎸 Nøω 💞\n🔊 Ƥɭɑyɩɳʛ 😍 ØƤ 🥀 ...**".format(),
+            caption="**💥 ᴀʟɪꜱʜᴀ🤞ᴍᴜsɪᴄ 🎸 ɴᴏᴡ 💞\n🔊 ᴘᴀʟʏɪɴɢ ᴀᴛ 😍 ʏᴏᴜʀ ɢʀᴏᴜᴘ 🥀 ...**".format(),
            )
 
     os.remove("final.png")
@@ -355,7 +355,7 @@ async def play(_, message: Message):
 @authorized_users_only
 async def pause(_, message: Message):
     await clientbot.pytgcalls.pause_stream(message.chat.id)
-    await message.reply_text("**▶️ Ƥɑʋsɘɗ 🌷 ...**"
+    await message.reply_text("**▶️ ᴘᴀᴜꜱᴇᴅ 🌷 ...**"
     )
 
 
@@ -364,7 +364,7 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     await clientbot.pytgcalls.resume_stream(message.chat.id)
-    await message.reply_text("**⏸ Ƥɭɑyɩɳʛ 🌷 ...**"
+    await message.reply_text("**⏸ ᴘʟᴀʏɪɴɢ 🌷 ...**"
     )
 
 
@@ -379,7 +379,7 @@ async def skip(_, message: Message):
     for x in clientbot.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("**💥 Ʌɗɩtyɑ 💞 Ɲøʈɦɩɳʛ 🔇\n🚫 Ƥɭɑyɩɳʛ 🌷 ...**")
+        await message.reply_text("**💥 ᴀʟɪꜱʜᴀ 💞 ɴᴏᴛʜɪɴɢ 🔇\n🚫 ᴘʟᴀʏɪɴɢ 🌷 ...**")
     else:
         queues.task_done(chat_id)
         
@@ -396,7 +396,7 @@ async def skip(_, message: Message):
             )
 
 
-    await message.reply_text("**⏩ Sƙɩƥƥɘɗ 🌷 ...**"
+    await message.reply_text("**⏩ ꜱᴋɪᴘᴘᴇᴅ 🌷 ...**"
    ) 
 
 
@@ -410,7 +410,7 @@ async def stop(_, message: Message):
         pass
 
     await clientbot.pytgcalls.leave_group_call(message.chat.id)
-    await message.reply_text("**❌ Sʈøƥƥɘɗ 🌷 ...**"
+    await message.reply_text("**❌ ꜱᴛᴏᴘᴘᴇᴅ 🌷 ...**"
     )
 
 
@@ -426,5 +426,5 @@ async def admincache(client, message: Message):
         ),
     )
 
-    await message.reply_text("**🔥 Ʀɘɭøɑɗɘɗ 🌷 ...**"
+    await message.reply_text("**🔥 ʀᴇʟᴏᴀᴅᴇᴅ 🌷 ...**"
     )
